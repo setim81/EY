@@ -1,0 +1,676 @@
+/*   
+Description: Interview Exercise
+Author: Tim
+Author URI: localhost
+Template: none
+Version: 1.0
+*/
+
+@font-face{
+font-family:EYInterstate-Bold;
+src: url('../fonts/EY_Interstate/EYInterstate-Bold.ttf') format("truetype");
+font-weight: bold;
+font-style: normal;
+}
+
+@font-face{
+font-family:EYInterstate-Regular;
+src: url('../fonts/EY_Interstate/EYInterstate-Regular.ttf') format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face{
+font-family:Roboto-Black;
+src: url('../fonts/Roboto/Roboto-Black.ttf') format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face{
+font-family:Roboto-Bold;
+src: url('../fonts/Roboto/Roboto-Bold.ttf') format("truetype");
+font-weight: bold;
+font-style: normal;
+}
+
+@font-face{
+font-family:Roboto-Medium;
+src: url('../fonts/Roboto/Roboto-Medium.ttf') format("truetype");
+font-weight: 500;
+font-style: normal;
+}
+
+@font-face{
+font-family:Roboto-Regular;
+src: url('../fonts/Roboto/Roboto-Regular.ttf') format("truetype");
+font-weight: normal;
+font-style: normal;
+}
+
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+h1{
+	font-family: 'EYInterstate-Bold';
+	font-size: 21px;
+	padding: 24px  0px 0px 24px;
+	line-height: 16px;
+	letter-spacing: -0.5px;
+}
+
+h2{
+	font-family: 'EYInterstate-Regular';
+	font-size: 16px;
+	font-weight: normal;
+	padding: 16px 0px 24px 24px;
+	color: #949494;
+	line-height: 12px;
+	letter-spacing: -0.5px;
+}
+
+h3{
+	font-family: 'EYInterstate-Regular';
+	font-size: 16px;
+	font-weight: bold;
+	padding: 16px 0px 24px 24px;
+	color: #000000;
+	line-height: 12px;
+	letter-spacing: -0.5px;
+}
+
+
+#wrapper{
+	max-width: 1440px;
+	margin: 0 auto;
+	background: #E5E5E5;
+
+}
+.header{
+	display: flex;
+	height: 48px;
+	background-color: #2E2E38;
+	/*margin-top: 39px;*/
+}
+
+.header_box{
+	display: flex;
+	justify-content: flex-start;
+	padding-right: 16px;
+	height: 24px;
+	border-right: 1px solid #FFFFFF;
+}
+
+.header_name{
+	display: flex;
+	min-width: 110px;
+	justify-content: flex-start;
+	font-family: 'EYInterstate-Regular';
+	line-height: 21px;
+	margin-top: 0px;
+	padding-left: 16px;
+	font-size: 14px;
+	align-items: center;
+	letter-spacing: -0.5px;
+	color: #FFFFFF;
+}
+
+.header_menu{
+	display: flex;
+	justify-content: flex-start;
+	width: 1317px;
+	
+	font-family: 'EYInterstate-Regular';
+	font-size: 14px;
+	letter-spacing: -0.5px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.header_user_menu{
+	display: flex;
+	min-width: 150px;
+	justify-content: flex-end;
+	font-family: 'EYInterstate-Regular';
+	line-height: 16px;
+	align-items: center;
+	font-size: 14px;
+	padding: 0 16px;
+	letter-spacing: -0.5px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.header_user_menu p{
+	padding-left: 5px;
+}
+
+/*----- стили выпадающего меню -------- */
+
+.navig p {
+	text-decoration: none;
+	padding: 15px 8px;
+}
+
+.navig ul {
+	text-align: center;
+}
+
+.navig ul li {
+	
+	cursor: pointer;
+	-webkit-transition: padding .05s linear;
+	-moz-transition: padding .05s linear;
+	-ms-transition: padding .05s linear;
+	-o-transition: padding .05s linear;
+	transition: padding .05s linear;
+
+}
+.navig ul li.header_bottom_line {
+	position: relative;
+}
+.navig ul > li {
+	display: inline-block;
+}
+.navig ul li a {
+
+	text-decoration: none;
+	color:#fff; 
+	line-height: 15px;
+	height: 80px;
+		-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	-ms-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+
+.header_bottom_line{
+	height: auto;
+	padding: 0px;
+	margin-right: 14px;
+}
+
+.header_bottom_line:first-child{
+	padding-left: 2px;
+
+}
+.header_bottom_line:hover {
+	border-bottom: 2px solid #FFF27F;
+}
+
+.navig ul li:hover .dropdownContain { top: 35px; }
+.navig ul li:hover .dropOut { 
+	opacity: 1; 
+	margin-top: 21px; 
+}
+
+.dropdownContain {
+	width: 253px;
+	position: absolute;
+	z-index: 9999;
+	left: 50%;
+	margin-left: -30px; /* half of width */
+	top: -700px;
+	margin-top: -7px;  
+}
+.dropOut {
+  	width: auto;
+	background: #2E2E38;
+	float: left;
+	position: relative;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	z-index: 9999;
+}
+
+.dropOut ul li {
+	text-align: left;
+	width: 253px;
+	padding: 8px 0px 8px 16px;
+	/*margin: 4px 0px; */
+	color: #777;
+	
+	-webkit-transition: background .04s ease-out;
+	-moz-transition: background .04s ease-out;
+	-ms-transition: background .04s ease-out;
+	-o-transition: background .04s ease-out;
+	transition: background .04s ease-out;
+}
+.dropOut ul li p {
+	font-family: 'Roboto-Regular';
+	font-size: 10px;
+	line-height: 12px;
+	padding: 4px 0px;
+	letter-spacing: 0.3px;
+}
+
+.dropOut ul li:hover {
+	background: #3E3E4C;
+}
+
+/*----- стили выпадающего меню END -------- */
+
+
+/*----- стили выпадающего usermenu -------- */
+.navig ul li:hover .dropdownContain_usermenu { top: 35px; }
+.navig ul li:hover .dropOut_usermenu { 
+	opacity: 1; 
+	margin-top: 21px; 
+}
+
+.dropdownContain_usermenu {
+	width: 100px;
+	position: absolute;
+	z-index: 9999;
+	left: 93%;
+	margin-left: -30px; /* half of width */
+	top: -700px;
+	margin-top: -7px;  
+}
+.dropOut_usermenu {
+  	width: auto;
+	background: #2E2E38;
+	float: left;
+	position: relative;
+
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	box-shadow: 0 1px 6px rgba(0,0,0,.15);
+	z-index: 9999;
+}
+
+.dropOut_usermenu ul li {
+	text-align: left;
+	width: 100px;
+	padding: 8px 0px 8px 16px;
+	/*margin: 4px 0px; */
+	color: #777;
+	
+	-webkit-transition: background .04s ease-out;
+	-moz-transition: background .04s ease-out;
+	-ms-transition: background .04s ease-out;
+	-o-transition: background .04s ease-out;
+	transition: background .04s ease-out;
+}
+.dropOut_usermenu ul li p {
+	font-family: 'Roboto-Regular';
+	font-size: 10px;
+	line-height: 12px;
+	padding: 4px 0px;
+	letter-spacing: 0.3px;
+}
+
+.dropOut_usermenu ul li:hover {
+	background: #3E3E4C;
+}
+
+/*----- стили выпадающего usermenu END-------- */
+
+
+.ID_Card {
+	display: flex;
+	flex-direction: row;
+	max-width: 1392px;
+	margin: 24px 24px 0px 24px;
+	border-bottom: 1px solid #F0F0F0;
+	border-left: 8px solid #FFF27F;
+	background: #FFFFFF;
+	
+}
+
+.ID_Card_username{
+	display: flex;
+	width: 75%; 
+	flex-direction: column;
+}
+
+.ID_Card_buttons {
+	display: flex;
+	width: 25%; 
+	margin-right:24px;
+	justify-content: flex-end;
+}
+
+.ID_Card_buttons button {
+    margin: 24px 0px;
+    cursor: pointer;
+    height: auto;
+    width: auto;
+    background: url(../img/check.png) no-repeat;
+	background-position: 8px 14px;
+	background-color: #FFF27F;
+	border:none;
+    box-sizing: border-box;
+    padding: 14px 37px;
+   
+   	font-family: 'EYInterstate-Regular';
+	font-size: 16px;
+	
+	line-height: 12px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color:#000000;
+}
+.ID_Card_buttons button nth-child(2){
+	margin-left:16px;
+}
+.ID_Card_buttons button:hover {
+	background-color:#FFEB3F;
+}
+
+.ID_Card_navig{
+	display: flex;
+	flex-direction: row;
+	max-width: 1392px;
+	margin: 0 24px;
+	padding: 16px 12px;
+	border-left: 8px solid #FFF27F;
+	background: #FFFFFF;
+}
+
+.ID_Card_navig ul > li {
+	display: inline-block;
+}
+
+.ID_Card_navig a:hover{
+	font-family: 'Roboto-Regular';
+	color: #000000;
+	border-bottom: 2px solid #FFF27F;
+	padding-bottom:13px;
+}
+
+
+.ID_Card_navig a{
+	font-family: 'Roboto-Regular';
+	font-style: normal;
+	color: #949494;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	padding: 0 12px;
+}
+
+.ID_Code{
+	display: flex;
+	flex-direction: column;
+	max-width: 1392px;
+	margin: 0px 24px 0px 24px;
+	border: 8px solid #F0F0F0;
+	background: #FFFFFF;
+	overflow: hidden;
+}
+
+.ID_Info{
+	display: flex;
+	flex-direction: column;
+	max-width: 1392px;
+	margin: 0px 24px 60px 24px;
+	border: 8px solid #F0F0F0;
+	background: #FFFFFF;
+}
+.ID_Info_header{
+	display: flex;
+	flex-direction: column;
+	
+}
+.ID_Info_blocks{
+	display: flex;
+	flex-direction: row;
+	max-width: 98%;
+	
+}
+
+.ID_Card_leftblock, .ID_Card_rightblock {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	margin:0;
+	padding: 0px;
+	
+}
+
+.ID_Card_leftblock p{
+	font-family: 'Roboto-Regular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 16px;
+	color: #000000;
+	padding: 0 0 0 24px;
+}
+
+.ID_Card_rightblock p{
+	font-family: 'Roboto-Regular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 16px;
+	color: #000000;
+	padding: 0 0 0 24px;
+}
+
+.redstar{
+	padding: 0px;
+	color: #FF4136;
+}
+
+.form_name{
+		display: flex;
+}	
+
+#userpic, #Birthplace, #Patronymic, #Surname, #Name {
+	min-width:607px;
+	height: 32px;
+	background: #F0F0F0;
+	border: none;
+	margin: 5px 0 24px 24px;
+	padding: 0 20px;
+
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	line-height: 16px;
+}
+
+input:required:invalid {
+	1px solid #FF4136;
+	background-image: url(../img/exclamation-square.png) no-repeat;
+	background-position: 25px 7px;
+}
+
+#Countrycode{
+	color:#949494;
+}
+
+
+/*--------------стили выпадающих списков блока информации о физлице-----------------*/
+.custom-select {
+	position: relative;
+	min-width:652px;
+	height: 32px;
+	background: #F0F0F0;
+	border: none;
+	margin: 5px 0 24px 24px;
+	padding: 0px;
+
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.custom-select select{
+ 	display: none; /*hide original SELECT element: */
+}
+.select-selected {
+  background-color: #F0F0F0;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #000 transparent transparent transparent;
+}
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #000 transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #FFFF;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border: 1px solid #F6F6FA;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: #F6F6FA;
+}
+/*--------------стили выпадающих списков END-----------------*/
+
+
+/*--------------стили выпадающего списка кнопки "Выгрузить данные"-----------------*/
+.custom-upload {
+
+	position: relative;
+	min-width:186px;
+	height: auto;
+	border: none;
+	margin: 24px 0 24px 24px;
+	padding: 5px 25px;
+	background: url(../img/file-download.png) no-repeat;
+	background-position: 8px 14px;
+	font-family: 'Roboto-Regular';
+	font-size: 14px;
+	line-height: 16px;
+	background-color: #FFF27F;
+}
+
+.custom-upload:hover {
+	background-color:#FFEB3F;
+}
+
+.custom-upload select{
+ 	display: none; /*hide original SELECT element: */
+}
+
+
+/* Style the arrow inside the select element: */
+.upload-select-selected:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #000 transparent transparent transparent;
+}
+/* Point the arrow upwards when the select box is open (active): */
+.upload-select-selected.upload-select-arrow-active:after {
+  border-color: transparent transparent #000 transparent;
+  top: 12px;
+}
+
+/* style the items (options), including the selected item: */
+.upload-select-items div,.upload-select-selected {
+  
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.upload-select-items {
+  position: absolute;
+  background-color: #FFFF;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border: 1px solid #F6F6FA;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  font-size: 12px;
+}
+
+/* Hide the items when the select box is closed: */
+.upload-select-hide {
+  display: none;
+}
+
+.upload-select-items div:hover, .same-as-selected {
+  background-color: #F6F6FA;
+}
+
+/*--------------стили выпадающего списка кнопки "Выгрузить данные" END-----------------*/
+
+
+#userpic{
+	background: url(../img/user.png) no-repeat;
+	background-position: 5px 7px;
+	background-color:#F0F0F0 ;
+}
+
+.footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 28px;
+	background-color: #2E2E38;
+	/*margin-top: 39px;*/
+}
+
+.footer p{
+	font-family: 'Roboto-Regular';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 10px;
+	line-height: 12px;
+	color: #949494;
+	padding: 8px 32px;
+}
