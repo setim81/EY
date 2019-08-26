@@ -526,19 +526,27 @@ input:required:invalid {
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
+ content: "";
+  display: block;  
+  height: 32px;  
+  width: 152px; 
   position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #000 transparent transparent transparent;
+  top: -10px;
+  right: -115px;
+  
+  background: url(../img/arrow-down.png) no-repeat;
+  background-position: 8px 24px;
 }
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-  border-color: transparent transparent #000 transparent;
-  top: 7px;
+  content: "";
+  display: block;  
+  position: absolute;
+  top: -10px;
+  right: -115px;
+  
+  background: url(../img/arrow-up.png) no-repeat;
+  background-position: 8px 24px;
 }
 
 /* style the items (options), including the selected item: */
@@ -601,19 +609,27 @@ input:required:invalid {
 
 /* Style the arrow inside the select element: */
 .upload-select-selected:after {
-  position: absolute;
   content: "";
-  top: 20px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #000 transparent transparent transparent;
+  display: block;  
+  height: 32px;  
+  width: 152px; 
+  position: absolute;
+  top: 0px;
+  right: -115px;
+  
+  background: url(../img/arrow-down.png) no-repeat;
+  background-position: 8px 24px;
 }
 /* Point the arrow upwards when the select box is open (active): */
 .upload-select-selected.upload-select-arrow-active:after {
-  border-color: transparent transparent #000 transparent;
-  top: 12px;
+  content: "";
+  display: block;  
+  position: absolute;
+  top: 0px;
+  right: -115px;
+  
+  background: url(../img/arrow-up.png) no-repeat;
+  background-position: 8px 24px;
 }
 
 /* style the items (options), including the selected item: */

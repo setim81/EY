@@ -1,0 +1,101 @@
+.multi-select-container {
+    display: inline-block;
+    position: relative;
+    margin:3px 0 11px 0;
+
+}
+
+.multi-select-menu {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 1;
+    float: left;
+    min-width: 100%;
+    background: #fff;
+    margin: 1em 0;
+    border: 1px solid #F6F6FA;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    display: none;
+}
+
+.multi-select-menuitem {
+    display: block;
+    font-size: 14px;
+    padding: 0.6em 1em 0.6em 40px;
+    white-space: nowrap;
+}
+
+.multi-select-menuitem:hover{
+    background: #F6F6FA;
+}
+
+.multi-select-menuitem + .multi-select-menuitem {
+    padding-top: 0;
+}
+
+.multi-select-presets {
+    border-bottom: 1px solid #ddd;
+}
+
+.multi-select-menuitem input {
+    position: absolute;
+    margin-top: 0.05em;
+    margin-left: -20px;
+}
+
+.multi-select-button {
+    display: inline-block;
+
+    min-width:607px;
+    height: 24px;
+    background: #F0F0F0;
+
+    font-size: 14px;
+    color: #000;
+
+    padding: 8px 21px 0 21px;
+    max-width: 16em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: -0.5em;
+    cursor: pointer;
+}
+
+.multi-select-button:after {
+  content: "";
+  display: block;  
+  height: 32px;  
+  width: 152px; 
+  position: absolute;
+  top: -10px;
+  right: -115px;
+  background: url(http://localhost/lessons/EY_exerc/img/arrow-down.png) no-repeat;
+  background-position: 8px 24px;
+}
+
+.multi-select-container--open .multi-select-menu {
+    display: block;
+}
+
+
+.multi-select-container--open .multi-select-button:after {
+  content: "";
+  display: block;  
+  position: absolute;
+  top: -10px;
+  right: -115px;
+  background: url(http://localhost/lessons/EY_exerc/img/arrow-up.png) no-repeat;
+  background-position: 8px 24px;
+}
+
+.multi-select-container--positioned .multi-select-menu {
+    /* Avoid border/padding on menu messing with JavaScript width calculation */
+    box-sizing: border-box;
+}
+
+.multi-select-container--positioned .multi-select-menu label {
+    /* Allow labels to line wrap when menu is artificially narrowed */
+    white-space: normal;
+}
