@@ -270,7 +270,7 @@ h3{
 
 
 /*----- стили выпадающего usermenu -------- */
-.navig ul li:hover .dropdownContain_usermenu { top: 35px; }
+.navig ul li:hover .dropdownContain_usermenu { top: 35px; left: auto; }
 .navig ul li:hover .dropOut_usermenu { 
 	opacity: 1; 
 	margin-top: 21px; 
@@ -302,7 +302,7 @@ h3{
 
 .dropOut_usermenu ul li {
 	text-align: left;
-	width: 100px;
+	width: 137px;
 	padding: 8px 0px 8px 16px;
 	/*margin: 4px 0px; */
 	color: #777;
