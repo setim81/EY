@@ -151,7 +151,7 @@
                                     <p>Идентификационный номер <span class="redstar">*</span></p>
                                 </div>
                                 <div class="multi-select-container">
-                                    <p><select id="ID_Number" name="ID_Number" multiple>
+                                    <p><select id="ID_Number" name="ID_Number" multiple size="3">
                                             <option value="0104">0104</option>
                                             <option value="0205">0205</option>
                                             <option value="0709">0709</option>
@@ -224,13 +224,15 @@
             <p>Copyright © 2019 Powered by EY TaxTech™ </p>
         </div>
     </div>
-    <script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <script src="js/multi_select/jquery.multi-select.js"></script>
-    <script src="js/custom_select.js"></script>
-    <script src="js/custom_upload.js"></script>
-    <script>
-    $('#ID_Number').multiSelect();
-    </script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
+>
+</script>
+<script src="js/multi_select/jquery.multi-select.js"></script>
+<script src="js/custom_select.js"></script>
+<script src="js/custom_upload.js"></script>
+<script>
+$('#ID_Number').multiSelect();
+</script>
 </body>
 
 </html>

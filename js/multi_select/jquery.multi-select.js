@@ -6,7 +6,7 @@
 
   "use strict";
 
-  var pluginName = "multiSelect",
+  let pluginName = "multiSelect",
     defaults = {
       'containerHTML': '<div class="multi-select-container">',
       'menuHTML': '<div class="multi-select-menu">',
@@ -45,7 +45,7 @@
     array1.sort();
     array2.sort();
 
-    for ( var i = 0; i < array1.length; i++ ){
+    for ( let i = 0; i < array1.length; i++ ){
       if ( array1[i] !== array2[i] ){
         return false;
       }
@@ -87,7 +87,7 @@
     },
 
     constructButton: function() {
-      var _this = this;
+      let _this = this;
       this.$button = $(this.settings['buttonHTML']);
       this.$button.attr({
         'role': 'button',
@@ -96,18 +96,18 @@
         'aria-label': this.$labels.eq(0).text()
       })
       .on('keydown.multiselect', function(e) {
-        var key = e.which;
-        var returnKey = 13;
-        var escapeKey = 27;
-        var spaceKey = 32;
-        var downArrow = 40;
+        let key = e.which;
+        let returnKey = 13;
+        let escapeKey = 27;
+        let spaceKey = 32;
+        let downArrow = 40;
         if ((key === returnKey) || (key === spaceKey)) {
           e.preventDefault();
           _this.$button.click();
         } else if (key === downArrow) {
           e.preventDefault();
           _this.menuShow();
-          var group = _this.$presets || _this.$menuItems;
+          let group = _this.$presets || _this.$menuItems;
           group.children(":first").focus();
         } else if (key === escapeKey) {
           _this.menuHide();
@@ -125,12 +125,12 @@
     },
 
     updateButtonContents: function() {
-      var _this = this;
-      var options = [];
-      var selected = [];
+      let _this = this;
+      let options = [];
+      let selected = [];
 
       this.$element.children('option').each(function() {
-        var text = /** @type string */ ($(this).text());
+        let text = /** @type string */ ($(this).text());
         options.push(text);
         if ($(this).is(':selected')) {
           selected.push( $.trim(text) );
@@ -149,14 +149,14 @@
     },
 
     constructMenu: function() {
-      var _this = this;
+      let _this = this;
 
       this.$menu = $(this.settings['menuHTML']);
       this.$menu.attr({
         'role': 'menu'
       }).on('keyup.multiselect', function(e){
-        var key = e.which;
-        var escapeKey = 27;
+        let key = e.which;
+        let escapeKey = 27;
         if (key === escapeKey) {
           _this.menuHide();
           _this.$button.focus();
@@ -172,7 +172,7 @@
     },
 
     constructMenuItems: function() {
-      var _this = this;
+      let _this = this;
 
       this.$menuItems = $(this.settings['menuItemsHTML']);
       this.$menu.append(this.$menuItems);
@@ -189,23 +189,23 @@
     },
 
     updateMenuItems: function() {
-      var _this = this;
+      let _this = this;
       this.$menuItems.empty();
 
       this.$element.children('option').each(function(option_index, option) {
-        var $item = _this.constructMenuItem($(option), option_index);
+        let $item = _this.constructMenuItem($(option), option_index);
         _this.$menuItems.append($item);
       });
     },
 
     upDown: function(type, e) {
-    var key = e.which;
-    var upArrow = 38;
-    var downArrow = 40;
+    let key = e.which;
+    let upArrow = 38;
+    let downArrow = 40;
 
     if (key === upArrow) {
       e.preventDefault();
-      var prev = $(e.currentTarget).prev();
+      let prev = $(e.currentTarget).prev();
       if (prev.length) {
         prev.focus();
       } else if (this.$presets && type === 'menuitem') {
@@ -215,7 +215,7 @@
       }
     } else if (key === downArrow) {
       e.preventDefault();
-      var next = $(e.currentTarget).next();
+      let next = $(e.currentTarget).next();
       if (next.length || type === 'menuitem') {
         next.focus();
       } else {
@@ -225,13 +225,13 @@
   },
 
     constructPresets: function() {
-      var _this = this;
+      let _this = this;
       this.$presets = $(this.settings['presetsHTML']);
       this.$menu.prepend(this.$presets);
 
       $.each(this.settings['presets'], function(i, preset){
-        var unique_id = _this.$element.attr('name') + '_preset_' + i;
-        var $item = $(_this.settings['menuItemHTML'])
+        let unique_id = _this.$element.attr('name') + '_preset_' + i;
+        let $item = $(_this.settings['menuItemHTML'])
           .attr({
             'for': unique_id,
             'role': 'menuitem'
@@ -240,7 +240,7 @@
           .on('keydown.multiselect', _this.upDown.bind(_this, 'preset'))
           .appendTo(_this.$presets);
 
-        var $input = $('<input>')
+        let $input = $('<input>')
           .attr({
             'type': 'radio',
             'name': _this.$element.attr('name') + '_presets',
@@ -262,11 +262,11 @@
     },
 
     updatePresets: function() {
-      var _this = this;
+      let _this = this;
 
       $.each(this.settings['presets'], function(i, preset){
-        var unique_id = _this.$element.attr('name') + '_preset_' + i;
-        var $input = _this.$presets.find('#' + unique_id);
+        let unique_id = _this.$element.attr('name') + '_preset_' + i;
+        let $input = _this.$presets.find('#' + unique_id);
 
         if ( arraysAreEqual(preset.options || [], _this.$element.val() || []) ){
           $input.prop('checked', true);
@@ -277,8 +277,8 @@
     },
 
     constructMenuItem: function($option, option_index) {
-      var unique_id = this.$element.attr('name') + '_' + option_index;
-      var $item = $(this.settings['menuItemHTML'])
+      let unique_id = this.$element.attr('name') + '_' + option_index;
+      let $item = $(this.settings['menuItemHTML'])
         .attr({
           'for': unique_id,
           'role': 'menuitem'
@@ -286,7 +286,7 @@
         .on('keydown.multiselect', this.upDown.bind(this, 'menuitem'))
         .text(' ' + $option.text());
 
-      var $input = $('<input>')
+      let $input = $('<input>')
         .attr({
           'type': 'checkbox',
           'id': unique_id,
@@ -317,7 +317,7 @@
     },
 
     constructModal: function() {
-      var _this = this;
+      let _this = this;
 
       if (this.settings['modalHTML']) {
         this.$modal = $(this.settings['modalHTML']);
@@ -329,7 +329,7 @@
     },
 
     setUpBodyClickListener: function() {
-      var _this = this;
+      let _this = this;
 
       // Hide the $menu when you click outside of it.
       $('html').on('click.multiselect', function(){
@@ -344,7 +344,7 @@
     },
 
     setUpLabelsClickListener: function() {
-      var _this = this;
+      let _this = this;
       this.$labels.on('click.multiselect', function(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -357,8 +357,8 @@
       this.$container.addClass(this.settings['activeClass']);
 
       if ( this.settings['positionMenuWithin'] && this.settings['positionMenuWithin'] instanceof $ ) {
-        var menuLeftEdge = this.$menu.offset().left + this.$menu.outerWidth();
-        var withinLeftEdge = this.settings['positionMenuWithin'].offset().left +
+        let menuLeftEdge = this.$menu.offset().left + this.$menu.outerWidth();
+        let withinLeftEdge = this.settings['positionMenuWithin'].offset().left +
           this.settings['positionMenuWithin'].outerWidth();
 
         if ( menuLeftEdge > withinLeftEdge ) {
@@ -367,8 +367,8 @@
         }
       }
 
-      var menuBottom = this.$menu.offset().top + this.$menu.outerHeight();
-      var viewportBottom = $(window).scrollTop() + $(window).height();
+      let menuBottom = this.$menu.offset().top + this.$menu.outerHeight();
+      let viewportBottom = $(window).scrollTop() + $(window).height();
       if ( menuBottom > viewportBottom - this.settings['viewportBottomGutter'] ) {
         this.$menu.css({
           'maxHeight': Math.max(
